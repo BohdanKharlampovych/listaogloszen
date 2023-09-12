@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="pl" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="records_list">
+        <source>records_list</source>
+        <target>Lista recordów</target>
+      </trans-unit>
+      <trans-unit id="tasks_list">
+        <source>tasks_list</source>
+        <target>Lista zadań</target>
+      </trans-unit>
+      <trans-unit id="categories_list">
+        <source>categories_list</source>
+        <target>Lista categorii</target>
+      </trans-unit>
+      <trans-unit id="label.actions">
+        <source>label.actions</source>
+        <target>Akcje</target>
+      </trans-unit>
+      <trans-unit id="label.id">
+        <source>label.id</source>
+        <target>Identyfikator</target>
+      </trans-unit>
+      <trans-unit id="label.title">
+        <source>label.title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="label.text">
+        <source>label.text</source>
+        <target>Tekst</target>
+      </trans-unit>
+      <trans-unit id="label.category">
+        <source>label.category</source>
+        <target>Kategoria</target>
+      </trans-unit>
+      <trans-unit id="label.updated_at">
+        <source>label.updated_at</source>
+        <target>Zaktualizowano o</target>
+      </trans-unit>
+      <trans-unit id="label.created_at">
+        <source>label.created_at</source>
+        <target>Utworzono o</target>
+      </trans-unit>
+    <trans-unit id="actions">
+        <source>actions</source>
+        <target>Działania</target>
+      </trans-unit>
+    <trans-unit id="action_save">
+        <source>action_save</source>
+        <target>Zapisanie</target>
+      </trans-unit>
+    <trans-unit id="action.delete">
+        <source>action.delete</source>
+        <target>Usuwanie</target>
+      </trans-unit>
+    <trans-unit id="action_login">
+        <source>action_login</source>
+        <target>Logowanie</target>
+      </trans-unit>
+    <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Wylogowanie</target>
+      </trans-unit>
+    <trans-unit id="action.logout">
+        <source>actions.logout</source>
+        <target>Wylogowanie</target>
+      </trans-unit>
+    <trans-unit id="action_logout">
+        <source>action_logout</source>
+        <target>Wylogowanie</target>
+      </trans-unit>
+    <trans-unit id="action.show">
+        <source>action.show</source>
+        <target>Pokazywanie</target>
+      </trans-unit>
+    <trans-unit id="action.save">
+        <source>action.save</source>
+        <target>Zapisanie</target>
+      </trans-unit>
+    <trans-unit id="action.edit">
+        <source>action.edit</source>
+        <target>Edytowanie</target>
+      </trans-unit>
+    <trans-unit id="action.back_to_list">
+        <source>action.back_to_list</source>
+        <target>Powrót do listy</target>
+      </trans-unit>
+    <trans-unit id="action_back_to_list">
+        <source>action_back_to_list</source>
+        <target>Powrót do listy</target>
+      </trans-unit>
+    <trans-unit id="id">
+        <source>id</source>
+        <target>Identyfikator</target>
+      </trans-unit>
+    <trans-unit id="updated_at">
+        <source>updated_at</source>
+        <target>Zaktualizowano o</target>
+      </trans-unit>
+     <trans-unit id="label.task_details">
+        <source>label.task_details</source>
+        <target>Szczegóły zadania</target>
+      </trans-unit>
+     <trans-unit id="record.id">
+        <source>record.id</source>
+        <target>Identyfikator rekordu</target>
+      </trans-unit>
+     <trans-unit id="record.title">
+        <source>record.title</source>
+        <target>Tytuł rekordu</target>
+      </trans-unit>
+     <trans-unit id="record.text">
+        <source>record.text</source>
+        <target>Tekst rekordu</target>
+      </trans-unit>
+     <trans-unit id="record.category">
+        <source>record.category</source>
+        <target>Kategoria rekordu</target>
+      </trans-unit>
+     <trans-unit id="record.actions">
+        <source>record.actions</source>
+        <target>Działania rekordowe</target>
+      </trans-unit>
+     <trans-unit id="record.created_at">
+        <source>record.created_at</source>
+        <target>Rekord utworzony o </target>
+      </trans-unit>
+     <trans-unit id="title.category_edit">
+        <source>title.category_edit</source>
+        <target>Edycja kategorii</target>
+      </trans-unit>
+     <trans-unit id="title.category_create">
+        <source>title.category_create</source>
+        <target>Tworzenie kategorii</target>
+      </trans-unit>
+     <trans-unit id="title.category_delete">
+        <source>title.category_delete</source>
+        <target>Usuwanie kategorii</target>
+      </trans-unit>
+     <trans-unit id="title.record_create">
+        <source>title.record_create</source>
+        <target>Tworzenie rekordu</target>
+      </trans-unit>
+     <trans-unit id="title.create_record">
+        <source>title.create_record</source>
+        <target>Tworzenie rekordu</target>
+      </trans-unit>
+     <trans-unit id="title.record_delete">
+        <source>title.record_delete</source>
+        <target>Usuwanie rekordu</target>
+      </trans-unit>
+     <trans-unit id="title.task_list">
+        <source>title.task_list</source>
+        <target>Lista zadań</target>
+      </trans-unit>
+     <trans-unit id="title.task_delete">
+        <source>title.task_delete</source>
+        <target>Usuwanie zadania</target>
+      </trans-unit>
+     <trans-unit id="title.task_create">
+        <source>title.task_create</source>
+        <target>Tworzenie zadania</target>
+      </trans-unit>
+     <trans-unit id="title.create_task">
+        <source>title.create_task</source>
+        <target>Tworzenie zadania</target>
+      </trans-unit>
+     <trans-unit id="title.task_details">
+        <source>title.task_details</source>
+        <target>Szczegóły zadania</target>
+      </trans-unit>
+     <trans-unit id="title.record_details">
+        <source>title.record_details</source>
+        <target>Szczegóły rekordu</target>
+      </trans-unit>
+      <trans-unit id="user_index">
+        <source>user_index</source>
+        <target>Lista użytkowników</target>
+      </trans-unit>
+     <trans-unit id="users_list">
+        <source>users_list</source>
+        <target>Lista użytkowników</target>
+      </trans-unit>
+     <trans-unit id="category_list">
+        <source>category_list</source>
+        <target>Lista kategorii</target>
+      </trans-unit>
+      <trans-unit id="user_show">
+        <source>user_show</source>
+        <target>Użytkownik</target>
+      </trans-unit>
+      <trans-unit id="text">
+        <source>text</source>
+        <target>Tekst</target>
+      </trans-unit>
+      <trans-unit id="title">
+        <source>title</source>
+        <target>Tutył</target>
+      </trans-unit>
+      <trans-unit id="add">
+        <source>add</source>
+        <target>Dodanie</target>
+      </trans-unit>
+      <trans-unit id="delete">
+        <source>delete</source>
+        <target>Usuwanie</target>
+      </trans-unit>
+      <trans-unit id="show">
+        <source>show</source>
+        <target>Pokazywanie</target>
+      </trans-unit>
+      <trans-unit id="email">
+        <source>email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="edit">
+        <source>edit</source>
+        <target>Edytowanie</target>
+      </trans-unit>
+      <trans-unit id="edit_email">
+        <source>edit_email</source>
+        <target>Edycja e-maila</target>
+      </trans-unit>
+      <trans-unit id="edit_password">
+        <source>edit_password</source>
+        <target>Edycja hasła</target>
+      </trans-unit>
+        <trans-unit id="created_at">
+        <source>created_at</source>
+        <target>Utworzony o</target>
+      </trans-unit>
+      <trans-unit id="task.actions">
+        <source>task.actions</source>
+        <target>Działania zadaniowe</target>
+      </trans-unit>
+      <trans-unit id="category">
+        <source>category</source>
+        <target>Kategoria</target>
+      </trans-unit>
+      <trans-unit id="message.empty_list">
+        <source>message.empty_list</source>
+        <target>Lista jest pusta</target>
+      </trans-unit>
+      <trans-unit id="message_empty_list">
+        <source>message_empty_list</source>
+        <target>Lista jest pusta</target>
+      </trans-unit>
+      <trans-unit id="message.record_not_found">
+        <source>message.record_not_found</source>
+        <target>Nie znaleziono rekordu</target>
+      </trans-unit>
+      <trans-unit id="message.created_successfully">
+        <source>message.created_successfully</source>
+        <target>Utworzono pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="message.deleted_successfully">
+        <source>message.deleted_successfully</source>
+        <target>Skutecznie usunięte</target>
+      </trans-unit>
+     <trans-unit id="message.edited_successfully">
+        <source>message.edited_successfully</source>
+        <target>Edytowano pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="title.record_list">
+        <source>title.record_list</source>
+        <target>Lista rekordów</target>
+      </trans-unit>
+      <trans-unit id="title.record_view">
+        <source>title.record_view</source>
+        <target>Widok rekordu #%id%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

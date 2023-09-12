@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  {{ 'title.record_details'|trans({'%id%': record.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+   <h1>{{ 'title.record_details'|trans({'%id%': record.id|default('')}) }}</h1>
+    {% if record is defined and record is not null%}
+         <dl class="dl-horizontal">
+            <dt>{{'label.id'|trans }}</dt>
+            <dd>{{ record.id }}</dd>
+            <dt>{{'label.created_at'|trans }}</dt>
+            <dd>{{ record.createdAt|date('D, d M Y') }}</dd>
+            <dt>{{'label.title'|trans }}</dt>
+            <dd>{{ record.title }}</dd>
+            <dt>{{'label.text'|trans }}</dt>
+            <dd>{{ record.text }}</dd>
+            <dt>{{'label.category'|trans }}</dt>
+            <dd>{{ record.category }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('record_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            Record not found.
+        </p>
+    {% endif %}
+{% endblock %}

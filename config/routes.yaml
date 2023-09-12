@@ -1,0 +1,61 @@
+home_page:
+    path: /
+    controller: App\Controller\RecordController::index
+
+record_index:
+  path: /record
+  controller: App\Controller\RecordController::index
+
+record_show:
+  path: /record/{id}
+  controller: App\Controller\RecordController::show
+
+record_edit:
+  path: /{id}/edit
+  controller: App\Controller\RecordController::edit
+
+record_create:
+    path: /create/record
+    controller: App\Controller\RecordController::create
+
+record_delete:
+  path: /record/delete/{id}
+  controller: App\Controller\RecordController::delete
+
+task_index:
+  path: /task
+  controller: App\Controller\TaskController::index
+
+task_show:
+  path: /task/{id}
+  controller: App\Controller\TaskController::show
+
+task_create:
+  path: /create/task
+  controller: App\Controller\TaskController::create
+
+task_delete:
+  path: /task/delete/{id}
+  controller: App\Controller\TaskController::delete
+
+category_index:
+  path: /category
+  controller: App\Controller\CategoryController::index
+
+category_show:
+  path: /category/{id}
+  controller: App\Controller\CategoryController::show
+
+category_create:
+  path: /create/category
+  controller: App\Controller\CategoryController::create
+
+record_createfromanon:
+    path: /create/recordfromanon/{id}
+    controller: App\Controller\RecordController::createfromtask
+
+
+
+
+
+
