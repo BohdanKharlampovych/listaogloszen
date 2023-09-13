@@ -5,9 +5,11 @@
 namespace App\Repository;
 
 use App\Entity\Category;
+use App\Entity\Record;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method Category|null find($id, $lockMode = null, $lockVersion = null)
@@ -30,14 +32,17 @@ class CategoryRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    private $entityManager;
+
     /**
      * Constructor.
      *
      * @param ManagerRegistry $registry Manager registry
      */
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $entityManager)
     {
-        parent::__construct($registry, Category::class);
+        parent::__construct($entityManager, Category::class);
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -73,16 +78,7 @@ class CategoryRepository extends ServiceEntityRepository
         $this->_em->persist($category);
         $this->_em->flush();
     }
-    /**
-     * Delete entity.
-     *
-     * @param Category $category Category entity
-     */
-    public function delete(Category $category): void
-    {
-        $this->_em->remove($category);
-        $this->_em->flush();
-    }
+
 
         public function findByTitle($value): ?Category
     {
@@ -93,5 +89,6 @@ class CategoryRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
 
 }

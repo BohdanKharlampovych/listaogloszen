@@ -45,7 +45,7 @@ class RecordService implements RecordServiceInterface
      */
     public function save(Record $record): void
     {
-        if (null == $record->getId() and empty($record->getCreatedAt())) {
+        if (null == $record->getId()) {
             $record->setCreatedAt(new \DateTimeImmutable());
         }
         $record->setUpdatedAt(new \DateTimeImmutable());

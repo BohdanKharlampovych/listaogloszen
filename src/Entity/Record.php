@@ -5,6 +5,7 @@ use App\Repository\RecordRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 #[ORM\Entity(repositoryClass: RecordRepository::class)]
 #[ORM\Table(name: 'articles')]
@@ -71,7 +72,6 @@ class Record
 
     /**
      * Category.
-     *
      * @var Category
      */
     #[ORM\ManyToOne(targetEntity: Category::class)]

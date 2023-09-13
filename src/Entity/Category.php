@@ -64,6 +64,10 @@ class Category
     {
         return $this->id;
     }
+    /**
+     * @ORM\OneToMany(targetEntity=Task::class, mappedBy="category", cascade={"remove"})
+     */
+    private $records;
 
 
     /**

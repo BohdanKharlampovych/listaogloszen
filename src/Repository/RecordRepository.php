@@ -68,4 +68,22 @@ class RecordRepository extends ServiceEntityRepository
         $this->_em->remove($record);
         $this->_em->flush();
     }
+    public function findByTitle($value): ?Record
+    {
+        return $this->createQueryBuilder('record')
+            ->andWhere('record.title = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+    public function findByCategory($value): ?Record
+    {
+        return $this->createQueryBuilder('record')
+            ->andWhere('record.category = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 }

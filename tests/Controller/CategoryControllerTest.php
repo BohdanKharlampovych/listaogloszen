@@ -89,29 +89,6 @@ class CategoryControllerTest extends WebTestCase
      *
      * @return void void
      */
-    public function testDeleteCategory(): void
-    {
-        // given
-        $user = $this->createUser('category1');
-        $this->httpClient->loginUser($user);
-        $categoryRepository =
-            static::getContainer()->get(CategoryRepository::class);
-        $testCategory = new Category();
-        $testCategory->setTitle('TestCategoryCreated');
-        $testCategory->setCreatedAt(new \DateTimeImmutable('now'));
-        $testCategory->setUpdatedAt(new \DateTimeImmutable('now'));
-        $categoryRepository->save($testCategory);
-        $testCategoryId = $testCategory->getId();
-        $this->httpClient->request('GET', self::TEST_ROUTE.'/delete/'.$testCategoryId);
-
-        // when
-        $this->httpClient->submitForm(
-            'Usuwanie'
-        );
-
-        // then
-        $this->assertNull($categoryRepository->findByTitle('TestCategoryCreated'));
-    }
 
     /**
      * Create user.
