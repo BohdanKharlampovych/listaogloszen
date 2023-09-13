@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.record_list'|trans }}
+    {{ 'records_list'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.record_list'|trans }}</h1>
+    <h1>{{ 'records_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -15,12 +15,12 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'record.id'|trans, 'record.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'record.created_at'|trans, 'record.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'record.title'|trans, 'record.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'record.text'|trans, 'record.text') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'record.category'|trans, 'category.title') }}</th>
-                <th>{{ 'record.actions'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'record.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'record.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'record.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.text'|trans, 'record.text') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.title') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>

@@ -42,32 +42,16 @@
         <source>label.created_at</source>
         <target>Utworzono o</target>
       </trans-unit>
-    <trans-unit id="actions">
-        <source>actions</source>
-        <target>Działania</target>
-      </trans-unit>
-    <trans-unit id="action_save">
-        <source>action_save</source>
-        <target>Zapisanie</target>
-      </trans-unit>
     <trans-unit id="action.delete">
         <source>action.delete</source>
         <target>Usuwanie</target>
       </trans-unit>
-    <trans-unit id="action_login">
-        <source>action_login</source>
-        <target>Logowanie</target>
-      </trans-unit>
     <trans-unit id="action.login">
         <source>action.login</source>
-        <target>Wylogowanie</target>
+        <target>Logowanie</target>
       </trans-unit>
     <trans-unit id="action.logout">
-        <source>actions.logout</source>
-        <target>Wylogowanie</target>
-      </trans-unit>
-    <trans-unit id="action_logout">
-        <source>action_logout</source>
+        <source>action.logout</source>
         <target>Wylogowanie</target>
       </trans-unit>
     <trans-unit id="action.show">
@@ -86,45 +70,9 @@
         <source>action.back_to_list</source>
         <target>Powrót do listy</target>
       </trans-unit>
-    <trans-unit id="action_back_to_list">
-        <source>action_back_to_list</source>
-        <target>Powrót do listy</target>
-      </trans-unit>
-    <trans-unit id="id">
-        <source>id</source>
-        <target>Identyfikator</target>
-      </trans-unit>
-    <trans-unit id="updated_at">
-        <source>updated_at</source>
-        <target>Zaktualizowano o</target>
-      </trans-unit>
      <trans-unit id="label.task_details">
         <source>label.task_details</source>
         <target>Szczegóły zadania</target>
-      </trans-unit>
-     <trans-unit id="record.id">
-        <source>record.id</source>
-        <target>Identyfikator rekordu</target>
-      </trans-unit>
-     <trans-unit id="record.title">
-        <source>record.title</source>
-        <target>Tytuł rekordu</target>
-      </trans-unit>
-     <trans-unit id="record.text">
-        <source>record.text</source>
-        <target>Tekst rekordu</target>
-      </trans-unit>
-     <trans-unit id="record.category">
-        <source>record.category</source>
-        <target>Kategoria rekordu</target>
-      </trans-unit>
-     <trans-unit id="record.actions">
-        <source>record.actions</source>
-        <target>Działania rekordowe</target>
-      </trans-unit>
-     <trans-unit id="record.created_at">
-        <source>record.created_at</source>
-        <target>Rekord utworzony o </target>
       </trans-unit>
      <trans-unit id="title.category_edit">
         <source>title.category_edit</source>
@@ -142,17 +90,9 @@
         <source>title.record_create</source>
         <target>Tworzenie rekordu</target>
       </trans-unit>
-     <trans-unit id="title.create_record">
-        <source>title.create_record</source>
-        <target>Tworzenie rekordu</target>
-      </trans-unit>
      <trans-unit id="title.record_delete">
         <source>title.record_delete</source>
         <target>Usuwanie rekordu</target>
-      </trans-unit>
-     <trans-unit id="title.task_list">
-        <source>title.task_list</source>
-        <target>Lista zadań</target>
       </trans-unit>
      <trans-unit id="title.task_delete">
         <source>title.task_delete</source>
@@ -162,10 +102,6 @@
         <source>title.task_create</source>
         <target>Tworzenie zadania</target>
       </trans-unit>
-     <trans-unit id="title.create_task">
-        <source>title.create_task</source>
-        <target>Tworzenie zadania</target>
-      </trans-unit>
      <trans-unit id="title.task_details">
         <source>title.task_details</source>
         <target>Szczegóły zadania</target>
@@ -173,6 +109,10 @@
      <trans-unit id="title.record_details">
         <source>title.record_details</source>
         <target>Szczegóły rekordu</target>
+      </trans-unit>
+     <trans-unit id="title.category_details">
+        <source>title.record_details</source>
+        <target>Szczegóły kategorii</target>
       </trans-unit>
       <trans-unit id="user_index">
         <source>user_index</source>
@@ -190,25 +130,13 @@
         <source>user_show</source>
         <target>Użytkownik</target>
       </trans-unit>
-      <trans-unit id="text">
-        <source>text</source>
-        <target>Tekst</target>
-      </trans-unit>
-      <trans-unit id="title">
-        <source>title</source>
-        <target>Tutył</target>
-      </trans-unit>
-      <trans-unit id="add">
-        <source>add</source>
+      <trans-unit id="action.add">
+        <source>action.add</source>
         <target>Dodanie</target>
       </trans-unit>
       <trans-unit id="delete">
         <source>delete</source>
         <target>Usuwanie</target>
-      </trans-unit>
-      <trans-unit id="show">
-        <source>show</source>
-        <target>Pokazywanie</target>
       </trans-unit>
       <trans-unit id="email">
         <source>email</source>
@@ -226,24 +154,20 @@
         <source>edit_password</source>
         <target>Edycja hasła</target>
       </trans-unit>
-        <trans-unit id="created_at">
-        <source>created_at</source>
-        <target>Utworzony o</target>
+      <trans-unit id="password">
+        <source>password</source>
+        <target>Hasło</target>
       </trans-unit>
-      <trans-unit id="task.actions">
-        <source>task.actions</source>
-        <target>Działania zadaniowe</target>
+      <trans-unit id="login">
+        <source>login</source>
+        <target>Zaloguj się</target>
       </trans-unit>
-      <trans-unit id="category">
-        <source>category</source>
-        <target>Kategoria</target>
+      <trans-unit id="signin">
+        <source>signin</source>
+        <target>Wejdź</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>Lista jest pusta</target>
-      </trans-unit>
-      <trans-unit id="message_empty_list">
-        <source>message_empty_list</source>
         <target>Lista jest pusta</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
@@ -261,10 +185,6 @@
      <trans-unit id="message.edited_successfully">
         <source>message.edited_successfully</source>
         <target>Edytowano pomyślnie</target>
-      </trans-unit>
-      <trans-unit id="title.record_list">
-        <source>title.record_list</source>
-        <target>Lista rekordów</target>
       </trans-unit>
       <trans-unit id="title.record_view">
         <source>title.record_view</source>

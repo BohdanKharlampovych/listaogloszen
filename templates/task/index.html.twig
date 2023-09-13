@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.task_list'|trans }}
+    {{ 'tasks_list'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.task_list'|trans }}</h1>
+    <h1>{{ 'tasks_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -15,14 +15,14 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'id'|trans, 'task.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'created_at'|trans, 'task.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'updated_at'|trans, 'task.updatedAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'title'|trans, 'task.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'text'|trans, 'task.text') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'category'|trans, 'category.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'task.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.text'|trans, 'task.text') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.title') }}</th>
 
-                <th>{{ 'actions'|trans }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -35,14 +35,14 @@
                     <td>{{ task.text }}</td>
                     <td>{{ task.category.title }}</td>
                     <td>
-                        <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'show'|trans }}">
-                            {{ 'show'|trans }}
+                        <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action.show'|trans }}">
+                            {{ 'action.show'|trans }}
                         </a>
-			<br><a href="{{ url('task_delete', {id: task.id}) }}" title="{{ 'delete'|trans }}">
+			<br><a href="{{ url('task_delete', {id: task.id}) }}" title="{{ 'action.delete'|trans }}">
                             {{ 'delete'|trans }}
                         </a></br>
-			<a href="{{ url('record_createfromanon', {id: task.id}) }}" title="{{ 'add'|trans }}">
-                            {{ 'add'|trans }}
+			<a href="{{ url('record_createfromanon', {id: task.id}) }}" title="{{ 'action.add'|trans }}">
+                            {{ 'action.add'|trans }}
                         </a>
                     </td>
                 </tr>

@@ -13,3 +13,7 @@ if (file_exists(dirname(__DIR__).'/config/bootstrap.php')) {
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 }
+
+passthru('clear');
+passthru('bin/console --env=test doctrine:schema:drop --force');
+passthru('bin/console --env=test --no-interaction doctrine:migrations:migrate');

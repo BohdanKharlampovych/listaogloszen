@@ -19,12 +19,10 @@
         {% if is_granted('EDIT_PASS', user) %}
             <a class="btn btn-outline-secondary" href="{{ url('edit_password', {'id': user.id}) }}">{{'edit_password'|trans}}</a>
         {% endif %}
-
-
     </div>
     {% else %}
         <p>
-            {{ 'message_empty_list'|trans }}
+            {{ 'message.empty_list'|trans }}
         </p>
     {% endif %}
 {% endblock  %}

@@ -9,7 +9,7 @@
     {% if task is defined and task|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
-            <dd>{{ task.id }}</dd>
+            <dd>{{ id }}</dd>
             <dt>{{ 'label.created_at'|trans }}</dt>
             <dd>{{ task.createdAt|date('D, d M Y') }}</dd>
             <dt>{{ 'label.updated_at'|trans }}</dt>

@@ -50,9 +50,17 @@ category_create:
   path: /create/category
   controller: App\Controller\CategoryController::create
 
+category_delete:
+  path: /category/delete/{id}
+  controller: App\Controller\CategoryController::delete
+
 record_createfromanon:
     path: /create/recordfromanon/{id}
     controller: App\Controller\RecordController::createfromtask
+
+user_show:
+    path: /{id}/show
+    controller: App\Controller\UserController::show
 
 
 

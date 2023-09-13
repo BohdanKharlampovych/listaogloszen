@@ -42,28 +42,16 @@
         <source>label.created_at</source>
         <target>created at</target>
       </trans-unit>
-    <trans-unit id="actions">
-        <source>actions</source>
-        <target>actions</target>
-      </trans-unit>
-    <trans-unit id="action_save">
-        <source>action_save</source>
-        <target>action save</target>
-      </trans-unit>
     <trans-unit id="action.delete">
         <source>action.delete</source>
         <target>action delete</target>
-      </trans-unit>
-    <trans-unit id="action_login">
-        <source>action_login</source>
-        <target>action login</target>
       </trans-unit>
     <trans-unit id="action.login">
         <source>action.login</source>
         <target>action login</target>
       </trans-unit>
     <trans-unit id="action.logout">
-        <source>actions.logout</source>
+        <source>action.logout</source>
         <target>action logout</target>
       </trans-unit>
     <trans-unit id="action.show">
@@ -82,49 +70,13 @@
         <source>action.back_to_list</source>
         <target>action back_to_list</target>
       </trans-unit>
-    <trans-unit id="action_logout">
-        <source>action_logout</source>
-        <target>action logout</target>
-      </trans-unit>
-    <trans-unit id="action_back_to_list">
-        <source>action_back_to_list</source>
-        <target>action back to list</target>
-      </trans-unit>
-    <trans-unit id="id">
-        <source>id</source>
-        <target>Id</target>
-      </trans-unit>
-    <trans-unit id="updated_at">
-        <source>updated_at</source>
-        <target>updated at</target>
-      </trans-unit>
      <trans-unit id="label.task_details">
         <source>label.task_details</source>
         <target>task details</target>
       </trans-unit>
-     <trans-unit id="record.id">
-        <source>record.id</source>
-        <target>Record id</target>
-      </trans-unit>
-     <trans-unit id="record.title">
-        <source>record.title</source>
-        <target>Record title</target>
-      </trans-unit>
-     <trans-unit id="record.text">
-        <source>record.text</source>
-        <target>Record text</target>
-      </trans-unit>
-     <trans-unit id="record.category">
-        <source>record.category</source>
-        <target>Record category</target>
-      </trans-unit>
-     <trans-unit id="record.actions">
-        <source>record.actions</source>
-        <target>Record actions</target>
-      </trans-unit>
-     <trans-unit id="record.created_at">
-        <source>record.created_at</source>
-        <target>Record created at</target>
+     <trans-unit id="title.category_details">
+        <source>title.record_details</source>
+        <target>Category details</target>
       </trans-unit>
      <trans-unit id="title.category_edit">
         <source>title.category_edit</source>
@@ -146,14 +98,6 @@
         <source>title.record_delete</source>
         <target>Record delete</target>
       </trans-unit>
-     <trans-unit id="title.create_record">
-        <source>title.create_record</source>
-        <target>Record create</target>
-      </trans-unit>
-     <trans-unit id="title.task_list">
-        <source>title.task_list</source>
-        <target>task list</target>
-      </trans-unit>
      <trans-unit id="title.task_delete">
         <source>title.task_delete</source>
         <target>task delete</target>
@@ -165,10 +109,6 @@
      <trans-unit id="title.task_details">
         <source>title.task_details</source>
         <target>task details</target>
-      </trans-unit>
-     <trans-unit id="title.create_task">
-        <source>title.create_task</source>
-        <target>task create</target>
       </trans-unit>
      <trans-unit id="title.record_details">
         <source>title.record_details</source>
@@ -186,16 +126,8 @@
         <source>users_list</source>
         <target>users list</target>
       </trans-unit>
-      <trans-unit id="text">
-        <source>text</source>
-        <target>ext</target>
-      </trans-unit>
-      <trans-unit id="title">
-        <source>title</source>
-        <target>Title</target>
-      </trans-unit>
-      <trans-unit id="add">
-        <source>add</source>
+      <trans-unit id="action.add">
+        <source>action.add</source>
         <target>Create</target>
       </trans-unit>
       <trans-unit id="delete">
@@ -222,24 +154,20 @@
         <source>edit_password</source>
         <target>Edit_password</target>
       </trans-unit>
-        <trans-unit id="created_at">
-        <source>created_at</source>
-        <target>created_at</target>
+      <trans-unit id="password">
+        <source>password</source>
+        <target>Password</target>
       </trans-unit>
-      <trans-unit id="task.actions">
-        <source>task.actions</source>
-        <target>task.actions</target>
+      <trans-unit id="login">
+        <source>login</source>
+        <target>Log in</target>
       </trans-unit>
-      <trans-unit id="category">
-        <source>category</source>
-        <target>category</target>
+      <trans-unit id="signin">
+        <source>signin</source>
+        <target>Sign in</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>List is empty</target>
-      </trans-unit>
-      <trans-unit id="message_empty_list">
-        <source>message_empty_list</source>
         <target>List is empty</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
@@ -257,10 +185,6 @@
      <trans-unit id="message.edited_successfully">
         <source>message.edited_successfully</source>
         <target>Edited successfully</target>
-      </trans-unit>
-      <trans-unit id="title.record_list">
-        <source>title.record_list</source>
-        <target>Records list</target>
       </trans-unit>
       <trans-unit id="title.record_view">
         <source>title.record_view</source>
