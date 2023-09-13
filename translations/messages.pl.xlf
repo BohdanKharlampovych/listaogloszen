@@ -42,6 +42,14 @@
         <source>label.created_at</source>
         <target>Utworzono o</target>
       </trans-unit>
+      <trans-unit id="task.title">
+        <source>task.title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="task.text">
+        <source>task.text</source>
+        <target>Tekst</target>
+      </trans-unit>
     <trans-unit id="action.delete">
         <source>action.delete</source>
         <target>Usuwanie</target>

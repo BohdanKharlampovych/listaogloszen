@@ -100,14 +100,14 @@ class TaskController extends AbstractController
     public function create(Request $request): Response
     {
         $task = new Task();
-            $form = $this->createForm(TaskType::class, $task, ['action' => $this->generateUrl('task_create')]
+            $form = $this->createForm(TaskType::class, $task
             );
             $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
             $text = $form->get('text')->getData();
             $title = $form->get('title')->getData();
             $task->setText($text);
             $task->setTitle($title);
-        if ($form->isSubmitted() && $form->isValid()) {
             $this->taskService->save($task);
             $this->addFlash(
                 'success',
