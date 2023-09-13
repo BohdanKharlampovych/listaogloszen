@@ -31,7 +31,6 @@ class CategoryServiceTest extends WebTestCase
     public function testGetPaginatedList(): void
     {
         // given
-        $page = 1;
         $dataSetSize = 3;
         $expectedResultSize = 3;
         $saved = 0;
