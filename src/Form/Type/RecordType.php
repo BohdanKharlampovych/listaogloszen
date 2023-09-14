@@ -34,7 +34,7 @@ class RecordType extends AbstractType
             ->add("title",
                 TextType::class,
                 [
-                    'label' => 'record.title',
+                    'label' => 'label.title',
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]
@@ -42,7 +42,7 @@ class RecordType extends AbstractType
             ->add("text",
                 TextType::class,
                 [
-                    'label' => 'record.text',
+                    'label' => 'label.text',
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]
