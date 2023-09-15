@@ -5,8 +5,8 @@ use App\Repository\RecordRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\Persistence\ManagerRegistry;
-
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: RecordRepository::class)]
 #[ORM\Table(name: 'articles')]
 class Record
@@ -29,6 +29,8 @@ class Record
      *
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $createdAt;
 
     /**
@@ -38,6 +40,8 @@ class Record
      *
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $updatedAt;
 
     /**
@@ -46,6 +50,9 @@ class Record
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 20, max: 255)]
     private ?string $text = null;
 
     /**
@@ -54,6 +61,9 @@ class Record
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $title = null;
 
     /**
@@ -76,7 +86,7 @@ class Record
      */
     #[ORM\ManyToOne(targetEntity: Category::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Category $category = null;
+    private ?Category $category;
 
     public function getId(): ?int
     {

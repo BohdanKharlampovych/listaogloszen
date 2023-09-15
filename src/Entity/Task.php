@@ -8,6 +8,8 @@ namespace App\Entity;
 use App\Repository\TaskRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Task.
@@ -37,6 +39,8 @@ class Task
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $createdAt;
 
     /**
@@ -47,6 +51,8 @@ class Task
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $updatedAt;
 
     /**
@@ -55,6 +61,9 @@ class Task
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $title = null;
 
     /**
@@ -63,10 +72,18 @@ class Task
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 20, max: 255)]
     private ?string $text = null;
 
-    #[ORM\ManyToOne]
-    private ?Category $category = null;
+    /**
+     * Category.
+     * @var Category
+     */
+    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category ;
 
     /**
      * Getter for Id.

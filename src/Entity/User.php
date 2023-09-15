@@ -60,6 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var array<int, string>
      */
     #[ORM\Column(type: 'json')]
+    #[Assert\NotBlank]
     private array $roles = [];
 
     /**
@@ -69,6 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
+    #[Assert\Length(min: 6, max: 255)]
     private ?string $password;
 
     /**

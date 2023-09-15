@@ -8,7 +8,8 @@ use App\Repository\CategoryRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Class Category.
  *
@@ -37,6 +38,8 @@ class Category
      * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $createdAt;
 
     /**
@@ -45,6 +48,8 @@ class Category
      * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\Type(DateTimeImmutable::class)]
+    #[Gedmo\Timestampable(on: 'update')]
     private ?DateTimeImmutable $updatedAt;
 
     /**
@@ -53,6 +58,9 @@ class Category
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $title;
 
     /**
@@ -64,11 +72,6 @@ class Category
     {
         return $this->id;
     }
-    /**
-     * @ORM\OneToMany(targetEntity=Task::class, mappedBy="category", cascade={"remove"})
-     */
-    private $records;
-
 
     /**
      * Getter for created at.

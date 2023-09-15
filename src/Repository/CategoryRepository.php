@@ -9,7 +9,6 @@ use App\Entity\Record;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method Category|null find($id, $lockMode = null, $lockVersion = null)
@@ -32,7 +31,6 @@ class CategoryRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
-    private $entityManager;
 
     /**
      * Constructor.
@@ -42,7 +40,6 @@ class CategoryRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $entityManager)
     {
         parent::__construct($entityManager, Category::class);
-        $this->entityManager = $entityManager;
     }
 
     /**

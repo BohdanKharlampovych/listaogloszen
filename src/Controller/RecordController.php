@@ -7,7 +7,8 @@ namespace App\Controller;
 
 use App\Entity\Record;
 use App\Entity\Task;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Form\Type\TaskType;
+use App\Repository\TaskRepository;
 use App\Form\Type\RecordType;
 use App\Repository\RecordRepository;
 use App\Service\RecordServiceInterface;
@@ -39,18 +40,24 @@ class RecordController extends AbstractController
      */
     private TranslatorInterface $translator;
 
+    /**
+     * Task service.
+     */
+    private TaskRepository $taskRepository;
 
     /**
      * Constructor.
      *
      * @param RecordServiceInterface $recordService Record service
      * @param TranslatorInterface $translator Translator
+     * @param TaskRepository $taskRepository Task service
      */
-    public function __construct(private ManagerRegistry $doctrine,RecordServiceInterface $recordService, TranslatorInterface $translator, Security $security)
+    public function __construct(TaskRepository $taskRepository,RecordServiceInterface $recordService, TranslatorInterface $translator, Security $security)
     {
         $this->recordService = $recordService;
         $this->translator = $translator;
         $this->security = $security;
+        $this->taskRepository = $taskRepository;
     }
 
 
@@ -104,34 +111,29 @@ class RecordController extends AbstractController
     public function create(Request $request): Response
     {
         $record = new Record();
-        $form = $this->createForm(RecordType::class, $record);
+        $form = $this->createForm(RecordType::class, $record,
+            [
+                'method' => 'GET',
+                'action' => $this->generateUrl('record_create'),
+            ]);
         $form->handleRequest($request);
-        $text = $form->get('text')->getData();
-        $title = $form->get('title')->getData();
 
-        $selectedCategory = $form->get('category')->getData();
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($this->isGranted('ROLE_ADMIN')) {
-                $record->setCategory($selectedCategory);
-                $record->setText($text);
-                $record->setTitle($title);
-                $user = $this->getUser();
-                $record->setUser($user);
+                $record->setUser($this->getUser());
                 $record->setVisibility(1);
-                $this->recordService->save($record);
-            }
+            $this->recordService->save($record);
+
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
-            return $this->redirectToRoute('record_index'); // Redirect to a list of records
+            return $this->redirectToRoute('record_index');
         }
 
         return $this->render('record/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
-
 
     #[Route('/record/delete/{id}', name: 'record_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Record $record): Response
@@ -203,18 +205,17 @@ class RecordController extends AbstractController
     #[Route('/create/recordfromanon/{id}', name: 'record_createfromanon', methods: 'GET|POST', )]
     public function createfromtask(Request $request, int $id): Response
     {
-        $record = new Record();
-
-        $task = $this->doctrine
-            ->getRepository(Task::class)
+        $task = $this->taskRepository
             ->findOneById($id);
+        $form = $this->createForm(TaskType::class, $task, ['method' => 'PUT']);
 
+        $record = new Record();
         $record->setTitle($task->getTitle());
         $record->setText($task->getText());
         $record->setCreatedAt($task->getCreatedAt());
         $record->setCategory($task->getCategory());
         $record->setVisibility(1);
-        $form = $this->createForm(RecordType::class, $record, ['method' => 'PUT']);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -225,8 +226,7 @@ class RecordController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            $this->doctrine
-                ->getRepository(Task::class)
+            $this->taskRepository
                 ->delete($task);
             $this->addFlash(
                 'success',
