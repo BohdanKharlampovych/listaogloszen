@@ -6,7 +6,6 @@
 namespace App\Security;
 
 use App\Repository\UserRepository;
-use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +15,6 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
@@ -69,15 +67,10 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * URL Generator.
      */
-    #private UrlGeneratorInterface $urlGenerator;
+    // private UrlGeneratorInterface $urlGenerator;
 
     /**
      * LoginFormAuthenticator constructor.
-     *
-     * @param UserRepository               $userRepository
-     * @param UrlGeneratorInterface        $urlGenerator
-     * @param CsrfTokenManagerInterface    $csrfTokenManager
-     * @param UserPasswordHasherInterface $passwordHasher
      */
     public function __construct(UserRepository $userRepository, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordHasherInterface $passwordHasher)
     {
@@ -120,12 +113,6 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @throws AuthenticationException
      */
-
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
     public function getCredentials(Request $request): array
     {
         $credentials = [
@@ -140,6 +127,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
         return $credentials;
     }
+
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
@@ -152,10 +140,11 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         if (!$user) {
             throw new CustomUserMessageAuthenticationException('Email could not be found.');
         }
+
         return $user;
     }
 
-    public function authenticate(Request $request): Passport /////
+    public function authenticate(Request $request): Passport // ///
     {
         $email = $request->request->get('email', '');
 
@@ -173,10 +162,6 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
-     *
-     * @param $credentials
-     *
-     * @return string|null
      */
     public function getPassword($credentials): ?string
     {
@@ -198,7 +183,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @return Response|null HTTP response
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
@@ -220,8 +205,4 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-
-
-
-
 }

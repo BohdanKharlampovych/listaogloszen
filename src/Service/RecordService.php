@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Service;
+
 use App\Entity\Record;
 use App\Repository\RecordRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -12,7 +13,6 @@ class RecordService implements RecordServiceInterface
      * Constructor.
      *
      * @param RecordRepository $taskRepository Category repository
-
      */
     private RecordRepository $recordRepository;
     private PaginatorInterface $paginator;
@@ -22,6 +22,7 @@ class RecordService implements RecordServiceInterface
         $this->recordRepository = $recordRepository;
         $this->paginator = $paginator;
     }
+
     /**
      * Create paginated list.
      *

@@ -12,7 +12,6 @@ use App\Repository\TaskRepository;
 use App\Form\Type\RecordType;
 use App\Repository\RecordRepository;
 use App\Service\RecordServiceInterface;
-use App\Service\TaskServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,11 +31,8 @@ class RecordController extends AbstractController
      */
     private RecordServiceInterface $recordService;
 
-
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -48,11 +44,11 @@ class RecordController extends AbstractController
     /**
      * Constructor.
      *
-     * @param RecordServiceInterface $recordService Record service
-     * @param TranslatorInterface $translator Translator
-     * @param TaskRepository $taskRepository Task service
+     * @param RecordServiceInterface $recordService  Record service
+     * @param TranslatorInterface    $translator     Translator
+     * @param TaskRepository         $taskRepository Task service
      */
-    public function __construct(TaskRepository $taskRepository,RecordServiceInterface $recordService, TranslatorInterface $translator, Security $security)
+    public function __construct(TaskRepository $taskRepository, RecordServiceInterface $recordService, TranslatorInterface $translator, Security $security)
     {
         $this->recordService = $recordService;
         $this->translator = $translator;
@@ -60,11 +56,9 @@ class RecordController extends AbstractController
         $this->taskRepository = $taskRepository;
     }
 
-
     /**
      * Index action.
      *
-     * @param Request $request
      * @return Response HTTP response
      */
     #[Route(
@@ -82,22 +76,21 @@ class RecordController extends AbstractController
         );
     }
 
-
     /**
      * Show action.
      *
      * @param RecordRepository $repository Record repository
-     * @param int $id Record id
+     * @param int              $id         Record id
      *
      * @return Response HTTP response
      */
     #[Route(
         '/{id}',
         name: 'record_show',
-        //requirements: ['id' => '[1-9]\d*'],
+        // requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    public function show(RecordRepository $repository,int $id, Record $record): Response
+    public function show(RecordRepository $repository, int $id, Record $record): Response
     {
         $record = $repository->find($id);
 
@@ -111,22 +104,26 @@ class RecordController extends AbstractController
     public function create(Request $request): Response
     {
         $record = new Record();
-        $form = $this->createForm(RecordType::class, $record,
+        $form = $this->createForm(
+            RecordType::class,
+            $record,
             [
                 'method' => 'GET',
                 'action' => $this->generateUrl('record_create'),
-            ]);
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                $record->setUser($this->getUser());
-                $record->setVisibility(1);
+            $record->setUser($this->getUser());
+            $record->setVisibility(1);
             $this->recordService->save($record);
 
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
+
             return $this->redirectToRoute('record_index');
         }
 
@@ -138,37 +135,36 @@ class RecordController extends AbstractController
     #[Route('/record/delete/{id}', name: 'record_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Record $record): Response
     {
-        {
-            $form = $this->createForm(
-                FormType::class,
-                $record,
-                [
-                    'method' => 'DELETE',
-                    'action' => $this->generateUrl('record_delete', ['id' => $record->getId()]),
-                ]
+        $form = $this->createForm(
+            FormType::class,
+            $record,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('record_delete', ['id' => $record->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->recordService->delete($record);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.deleted_successfully')
             );
-            $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->recordService->delete($record);
-
-                $this->addFlash(
-                    'success',
-                    $this->translator->trans('message.deleted_successfully')
-                );
-
-                return $this->redirectToRoute('record_index');
-            }
-
-            return $this->render(
-                'record/delete.html.twig',
-                [
-                    'form' => $form->createView(),
-                    'record' => $record,
-                ]
-            );
+            return $this->redirectToRoute('record_index');
         }
+
+        return $this->render(
+            'record/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'record' => $record,
+            ]
+        );
     }
+
     #[Route('/{id}/edit', name: 'record_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
     public function edit(Request $request, Record $record): Response
     {
@@ -219,7 +215,6 @@ class RecordController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->recordService->save($record);
             $this->addFlash(
                 'success',
@@ -232,6 +227,7 @@ class RecordController extends AbstractController
                 'success',
                 $this->translator->trans('message.deleted_successfully')
             );
+
             return $this->redirectToRoute('record_index'); // Redirect to a list of records
         }
 
@@ -239,6 +235,4 @@ class RecordController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
 }

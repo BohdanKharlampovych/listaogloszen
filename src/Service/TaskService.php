@@ -52,6 +52,7 @@ class TaskService implements TaskServiceInterface
             TaskRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
     /**
      * Save entity.
      *
@@ -75,6 +76,4 @@ class TaskService implements TaskServiceInterface
     {
         $this->taskRepository->delete($task);
     }
-
-
 }

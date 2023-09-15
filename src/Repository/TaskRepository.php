@@ -73,8 +73,6 @@ class TaskRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-
-
     /**
      * Get or create new query builder.
      *

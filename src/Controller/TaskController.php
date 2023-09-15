@@ -5,9 +5,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Record;
 use App\Entity\Task;
-use App\Form\Type\RecordType;
 use App\Form\Type\TaskType;
 use App\Service\RecordServiceInterface;
 use App\Service\TaskServiceInterface;
@@ -18,7 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 
 /**
  * Class TaskController.
@@ -46,14 +43,13 @@ class TaskController extends AbstractController
      * @param TaskServiceInterface $taskService Task service
      * @param TranslatorInterface  $translator  Translator
      */
-    public function __construct(RecordServiceInterface $recordService,TaskServiceInterface $taskService, TranslatorInterface $translator, Security $security)
+    public function __construct(RecordServiceInterface $recordService, TaskServiceInterface $taskService, TranslatorInterface $translator, Security $security)
     {
         $this->taskService = $taskService;
         $this->translator = $translator;
         $this->security = $security;
         $this->recordService = $recordService;
     }
-
 
     /**
      * Index action.
@@ -89,6 +85,7 @@ class TaskController extends AbstractController
     {
         return $this->render('task/show.html.twig', ['task' => $task]);
     }
+
     /**
      * Create action.
      *
@@ -100,10 +97,12 @@ class TaskController extends AbstractController
     public function create(Request $request): Response
     {
         $task = new Task();
-            $form = $this->createForm(TaskType::class, $task
-            );
-            $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        $form = $this->createForm(
+            TaskType::class,
+            $task
+        );
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $text = $form->get('text')->getData();
             $title = $form->get('title')->getData();
             $task->setText($text);
@@ -113,11 +112,13 @@ class TaskController extends AbstractController
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
+
             return $this->redirectToRoute('record_index');
         }
 
-        return $this->render('task/create.html.twig',  ['form' => $form->createView()]);
+        return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
+
     /**
      * Edit action.
      *
@@ -158,6 +159,7 @@ class TaskController extends AbstractController
             ]
         );
     }
+
     /**
      * Delete action.
      *
@@ -198,6 +200,4 @@ class TaskController extends AbstractController
             ]
         );
     }
-
-
 }

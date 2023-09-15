@@ -27,8 +27,6 @@ class CategoryController extends AbstractController
     private CategoryServiceInterface $categoryService;
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -76,6 +74,7 @@ class CategoryController extends AbstractController
     {
         return $this->render('category/show.html.twig', ['category' => $category]);
     }
+
     /**
      * Create action.
      *
@@ -110,6 +109,7 @@ class CategoryController extends AbstractController
             ['form' => $form->createView()]
         );
     }
+
     /**
      * Edit action.
      *
@@ -150,6 +150,7 @@ class CategoryController extends AbstractController
             ]
         );
     }
+
     /**
      * Delete action.
      *
@@ -186,5 +187,4 @@ class CategoryController extends AbstractController
             ]
         );
     }
-
 }

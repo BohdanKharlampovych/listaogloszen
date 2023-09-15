@@ -4,6 +4,7 @@
  */
 
 namespace App\Repository;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -14,12 +15,10 @@ use App\Entity\Record;
  */
 class RecordRepository extends ServiceEntityRepository
 {
-    const PAGINATOR_ITEMS_PER_PAGE = 10;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
      * Query all records.
-     *
-     * @return QueryBuilder
      */
     public function queryAll(): QueryBuilder
     {
@@ -31,12 +30,9 @@ class RecordRepository extends ServiceEntityRepository
             ->join('record.category', 'category')
             ->orderBy('record.id', 'ASC');
     }
+
     /**
      * Get or create query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder
-     *
-     * @return QueryBuilder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
@@ -58,6 +54,7 @@ class RecordRepository extends ServiceEntityRepository
         $this->_em->persist($record);
         $this->_em->flush();
     }
+
     /**
      * Delete entity.
      *
@@ -68,6 +65,7 @@ class RecordRepository extends ServiceEntityRepository
         $this->_em->remove($record);
         $this->_em->flush();
     }
+
     public function findByTitle($value): ?Record
     {
         return $this->createQueryBuilder('record')
@@ -75,8 +73,9 @@ class RecordRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
-            ;
+        ;
     }
+
     public function findByCategory($value): ?Record
     {
         return $this->createQueryBuilder('record')
@@ -84,6 +83,6 @@ class RecordRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
-            ;
+        ;
     }
 }

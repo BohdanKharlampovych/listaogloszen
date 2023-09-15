@@ -2,10 +2,10 @@
 /**
  * Category repository.
  */
+
 namespace App\Repository;
 
 use App\Entity\Category;
-use App\Entity\Record;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -31,11 +31,8 @@ class CategoryRepository extends ServiceEntityRepository
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
-
     /**
      * Constructor.
-     *
-     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $entityManager)
     {
@@ -65,6 +62,7 @@ class CategoryRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('category');
     }
+
     /**
      * Save entity.
      *
@@ -76,8 +74,7 @@ class CategoryRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
-
-        public function findByTitle($value): ?Category
+    public function findByTitle($value): ?Category
     {
         return $this->createQueryBuilder('category')
             ->andWhere('category.title = :val')
@@ -86,6 +83,4 @@ class CategoryRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-
-
 }

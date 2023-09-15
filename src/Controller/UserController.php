@@ -8,7 +8,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\ChangePasswordType;
-
 use App\Form\Type\UserType;
 use App\Service\UserService;
 use Doctrine\ORM\OptimisticLockException;
@@ -32,22 +31,15 @@ class UserController extends AbstractController
 
     /**
      * UserController constructor.
-     *
-     * @param UserService $userService
      */
-    public function __construct(UserService $userService,UserPasswordHasherInterface $passwordHasher)
+    public function __construct(UserService $userService, UserPasswordHasherInterface $passwordHasher)
     {
         $this->userService = $userService;
         $this->passwordHasher = $passwordHasher;
     }
 
     /**
-     * Index of user
-     *
-     * @param Request $request
-     *
-     * @return Response
-     *
+     * Index of user.
      */
     #[Route(
         '/{id}/index',
@@ -67,14 +59,9 @@ class UserController extends AbstractController
 
     /**
      * Show user.
-     *
-     * @param User $user
-     *
-     * @return Response
-     *
      */
     #[Route(
-         '/{id}/show',
+        '/{id}/show',
         name: 'user_show',
         methods: 'GET',
     )]
@@ -89,21 +76,15 @@ class UserController extends AbstractController
     /**
      * Edit email.
      *
-     * @param Request $request
-     * @param User    $user
-     *
-     * @return Response
-     *
      * @throws ORMException
      * @throws OptimisticLockException
-     *
      */
     #[Route(
         '/{id}/edit/email',
         name: 'edit_email',
         methods: 'GET|PUT',
     )]
-    public function editEmail(Request $request, User $user):Response
+    public function editEmail(Request $request, User $user): Response
     {
         $form = $this->createForm(UserType::class, $user, ['method' => 'PUT']);
         $form->handleRequest($request);
@@ -135,16 +116,8 @@ class UserController extends AbstractController
     /**
      * Edit password.
      *
-     * @param Request                      $request
-     * @param User                         $user
-     * @param UserPasswordHasherInterface $passwordHasher
-     *
-     * @return Response
-     *
      * @throws ORMException
      * @throws OptimisticLockException
-     *
-     *
      */
     #[Route(
         '/{id}/edit/password',
@@ -179,5 +152,4 @@ class UserController extends AbstractController
             ]
         );
     }
-
 }

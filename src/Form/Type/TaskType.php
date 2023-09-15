@@ -18,7 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class TaskType extends AbstractType
 {
-
     /**
      * Builds the form.
      *
@@ -40,10 +39,10 @@ class TaskType extends AbstractType
                     'class' => Category::class,
                     'label' => 'label.category',
                     'required' => true,
-
                 ],
             )
-            ->add("title",
+            ->add(
+                'title',
                 TextType::class,
                 [
                     'label' => 'task.title',
@@ -51,7 +50,8 @@ class TaskType extends AbstractType
                     'attr' => ['max_length' => 255],
                 ]
             )
-            ->add("text",
+            ->add(
+                'text',
                 TextType::class,
                 [
                     'label' => 'task.text',
@@ -59,7 +59,6 @@ class TaskType extends AbstractType
                     'attr' => ['max_length' => 255],
                 ]
             );
-
     }
 
     /**

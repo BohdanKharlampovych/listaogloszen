@@ -12,6 +12,6 @@ interface RecordServiceInterface
      * @param Record $record Record entity
      */
     public function save(Record $record): void;
-    public function delete(Record $record): void;
 
+    public function delete(Record $record): void;
 }

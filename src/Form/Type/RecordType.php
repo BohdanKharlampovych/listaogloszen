@@ -13,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
 /**
  * Class RecordType.
  */
@@ -31,7 +30,8 @@ class RecordType extends AbstractType
                     'required' => true,
                 ],
             )
-            ->add("title",
+            ->add(
+                'title',
                 TextType::class,
                 [
                     'label' => 'label.title',
@@ -39,7 +39,8 @@ class RecordType extends AbstractType
                     'attr' => ['max_length' => 255],
                 ]
             )
-            ->add("text",
+            ->add(
+                'text',
                 TextType::class,
                 [
                     'label' => 'label.text',
@@ -47,10 +48,6 @@ class RecordType extends AbstractType
                     'attr' => ['max_length' => 255],
                 ]
             );
-
-
-
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

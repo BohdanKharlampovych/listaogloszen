@@ -17,23 +17,16 @@ class UserService
 {
     /**
      * Category repository.
-     *
-     * @var UserRepository
      */
     private UserRepository $userRepository;
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
     /**
      * UserService constructor.
-     *
-     * @param UserRepository $userRepository
-     * @param PaginatorInterface $paginator
      */
     public function __construct(UserRepository $userRepository, PaginatorInterface $paginator)
     {
@@ -59,9 +52,6 @@ class UserService
 
     /**
      * Save.
-     *
-     * @param User $user
-     *
      */
     public function save(User $user): void
     {

@@ -14,7 +14,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
  */
 class UserFixtures extends AbstractBaseFixtures
 {
-
     /**
      * Password hasher.
      */

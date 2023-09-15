@@ -9,12 +9,10 @@ use Knp\Component\Pager\PaginatorInterface;
 
 class CategoryService implements CategoryServiceInterface
 {
-    
     /**
      * Constructor.
      *
      * @param CategoryRepository $taskRepository Category repository
-
      */
     private CategoryRepository $categoryRepository;
     private PaginatorInterface $paginator;
@@ -24,6 +22,7 @@ class CategoryService implements CategoryServiceInterface
         $this->categoryRepository = $categoryRepository;
         $this->paginator = $paginator;
     }
+
     /**
      * Save entity.
      *
@@ -44,7 +43,6 @@ class CategoryService implements CategoryServiceInterface
         $this->categoryRepository->delete($category);
     }
 
-
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
@@ -53,5 +51,4 @@ class CategoryService implements CategoryServiceInterface
             CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
-
 }
